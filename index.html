@@ -66,54 +66,6 @@
 </ul>
 
 <h2>
-<a name="api-examples" class="anchor" href="#api-examples"><span class="octicon octicon-link"></span></a>API Examples</h2>
-
-<ol>
-   <li>
-	<p>Retrieve content provided by music magazines:</p>
-	<pre><code>https://ipool.s.asideas.de:443/api/v3/search?limit=25&publisher="www.metal-hammer.de","www.musikexpress.de","www.rollingstone.de</code></pre>
-   </li>	
-   <li>
-	<p>Find some content about your favourite singer Udo Lindenberg:</p>
-	<pre><code>https://ipool.s.asideas.de:443/api/v3/search?limit=25&q="udo lindenberg"</code></pre>
-   </li>
-   <li>
-	<p>Find some pictures related to Udo Lindenberg:</p>
-	<pre><code>
-https://ipool.s.asideas.de:443/api/v3/search?limit=25&sources="escenic"&q=udo lindenberg
-
-"contentReferences": [
-{
-  <bold>"binaryIdentifier": "ba510dc99b37854928cf553c96144caa",</bold>
-  ...
-}
-
-	</code></pre>
-   </li>
-
-
-      <li>	
-   	   <p>Find articles about Udo Lindenbergs musical called "Hinterm Horizont":</p>
-	   <pre><code>https://ipool.s.asideas.de:443/api/v3/search?persons="udo lindenberg"&limit=25&q="Hinterm Horizont"</code></pre>
-	
-	<p>Get a related article to Udo Lindenbergs musical:</p>
-	<pre><code>
-"relatedReferences": [
-{
-  <bold>"identifier": "cece43dc263ae3bca9385c8ddccb6890",</bold>
-  "type": "ARTICLE"
-},
-...
-]
-
-	    
-https://ipool.s.asideas.de:443/api/v3/related/cece43dc263ae3bca9385c8ddccb6890 
-		
-	</code></pre>
-      </li>
-
-</ol>
-<h2>
 <a name="api-registration" class="anchor" href="#api-registration"><span class="octicon octicon-link"></span></a>API Registration</h2>
 
 <p>Applications to the iPool API are approved individually for each new project. For the <a href="http://musichackday.de/">Berlin Music Hack Day</a> following time limited OAuth access credentials are provided:</p>
