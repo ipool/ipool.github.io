@@ -68,9 +68,41 @@
 <h2>
 <a name="api-examples" class="anchor" href="#api-examples"><span class="octicon octicon-link"></span></a>API Examples</h2>
 
-<p>retrieve content provided by music magazines:</p>
+<p>Retrieve content provided by music magazines:</p>
 <pre><code>https://ipool.s.asideas.de:443/api/v3/search?limit=25&publisher="www.metal-hammer.de","www.musikexpress.de","www.rollingstone.de</code></pre>
 
+<p>Find some content about your favourite singer Udo Lindenberg:</p>
+<pre><code>https://ipool.s.asideas.de:443/api/v3/search?limit=25&q="udo lindenberg"</code></pre>
+
+<p>Find some pictures related to Udo Lindenberg:</p>
+<pre><code>
+	https://ipool.s.asideas.de:443/api/v3/search?limit=25&sources="escenic"&q=udo lindenberg
+	
+	"contentReferences": [
+        {
+          <bold>"binaryIdentifier": "ba510dc99b37854928cf553c96144caa",</bold>
+          ...
+        }
+      ]
+</code></pre>
+
+<p>Find articles about Udo Lindenbergs musical called "Hinterm Horizont":</p>
+<pre><code>https://ipool.s.asideas.de:443/api/v3/search?persons="udo lindenberg"&limit=25&q="Hinterm Horizont"</code></pre>
+
+<p>Get a related article to Udo Lindenbergs musical:</p>
+<pre><code>
+	"relatedReferences": [
+        {
+          <bold>"identifier": "cece43dc263ae3bca9385c8ddccb6890",</bold>
+          "type": "ARTICLE"
+        },
+        ...
+      ]
+    }
+    
+   https://ipool.s.asideas.de:443/api/v3/related/cece43dc263ae3bca9385c8ddccb6890 
+	
+</code></pre>
 
 <h2>
 <a name="api-registration" class="anchor" href="#api-registration"><span class="octicon octicon-link"></span></a>API Registration</h2>
