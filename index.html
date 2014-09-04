@@ -122,7 +122,7 @@ Secret: 276ea410-29fb-11e4-8c21-0800200c9a66
 <h2>
 <a name="faq" class="anchor" href="#faq"><span class="octicon octicon-link"></span></a>FAQ</h2>
 
-<p>1) How can I use pagination?</p>
+<p><strong>1) How can I use pagination?</strong></p>
 
 <p>Pagination is a useful mechanism to get more results as specified by the limit parameter. Therefore, we simply exploit the offset parameter in conjunction with a certain limit value. Let us assume that we are interested in articles related to the singer Madonna. When our iPool system includes 1000 related articles, we can get a list of the first 100 ones via querying</p>
 
@@ -141,7 +141,7 @@ Secret: 276ea410-29fb-11e4-8c21-0800200c9a66
 
 <p>And so on.</p>
 
-<p>2) What is the difference between the hot topic and the trending endpoint?</p>
+<p><strong>2) What is the difference between the hot topic and the trending endpoint?</strong></p>
 
 <p>The hot topic endpoint determines topics that are mentioned most over all current documents. A time dimension is not taken into account.
 Following example query gives hot topics that are related to the person Madonna, but not to the person Michael Jackson. To express such a query, we filter Madonna positively and Michael Jackson negatively in the persons parameter, respectively:</p>
@@ -155,7 +155,7 @@ The next example query returns the trending topics for the last 10 days (default
 <div class="highlight highlight-javascript"><pre><span class="nx">https</span><span class="o">:</span><span class="c1">//ipool.s.asideas.de/api/v3/topics/trending?numberOfRequests=10</span>
 </pre></div>
 
-<p>3) What is the difference between the limit and the numberOfHotTopics parameter for the trending endpoint?</p>
+<p><strong>3) What is the difference between the limit and the numberOfHotTopics parameter for the trending endpoint?</strong></p>
 
 <p>The limit parameter restricts the number of returned topics. Contrarily, the numberOfHotTopics parameter bounds the internal computation basis. As result, we are able to reduce critical calculations by adjusting this parameter.
 The following query just consider the best 100 hot topics of the last 10 days to determine the trending ones:</p>
@@ -163,11 +163,11 @@ The following query just consider the best 100 hot topics of the last 10 days to
 <div class="highlight highlight-javascript"><pre><span class="nx">https</span><span class="o">:</span><span class="c1">//ipool.s.asideas.de/api/v3/topics/trending?numberOfHotTopics=100</span>
 </pre></div>
 
-<p>4) What does the parameter numberOfRequests mean?</p>
+<p><strong>4) What does the parameter numberOfRequests mean?</strong></p>
 
 <p>This parameter says how many times the specified interval is split for performing the underlying calculation of trending topics. For an example see above.</p>
 
-<p>5) How can I retrieve a picture?</p>
+<p><strong>5) How can I retrieve a picture?</strong></p>
 
 <p>In order to download a specific picture you need either the object identifier or the external URL. Both entities are parts of the resulting JSON object achieved by a query sent to the search endpoint:</p>
 
@@ -196,7 +196,7 @@ For downloading the picture with the binary identifier 31a79d4aa911d697d3bcd64fe
 
 <p>The presences of binary identifiers and external URLs are depending on the given source and publisher of the considered article. For instance, all pictures of the source escenic can be achieved via our object endpoint. Contrarily, videos have to be downloaded directly by their respective URLs.</p>
 
-<p>6) How can I get an overview of all available keywords?</p>
+<p><strong>6) How can I get an overview of all available keywords?</strong></p>
 
 <p>We can get a list of all available keywords by taking advantage of the hot topic endpoint specifying the entityType as keywords:</p>
 
