@@ -81,7 +81,7 @@ Secret: 276ea410-29fb-11e4-8c21-0800200c9a66
 
 <p>1) Retrieve content provided by music magazines:</p>
 
-<div class="highlight highlight-javascript"><pre>    <span class="nx">https</span><span class="o">:</span><span class="c1">//ipool.s.asideas.de:443/api/v3/search?limit=25&amp;publisher="www.metal-hammer.de","www.musikexpress.de","www.rollingstone.de</span>
+<div class="highlight highlight-javascript"><pre><span class="nx">https</span><span class="o">:</span><span class="c1">//ipool.s.asideas.de:443/api/v3/search?limit=25&amp;publisher="www.metal-hammer.de","www.musikexpress.de","www.rollingstone.de</span>
 </pre></div>
 
 <p>2) Find some content about your favourite singer Udo Lindenberg:</p>
@@ -117,6 +117,90 @@ Secret: 276ea410-29fb-11e4-8c21-0800200c9a66
 
 
 <span class="nx">https</span><span class="o">:</span><span class="c1">//ipool.s.asideas.de:443/api/v3/related/cece43dc263ae3bca9385c8ddccb6890</span>
+</pre></div>
+
+<h2>
+<a name="faq" class="anchor" href="#faq"><span class="octicon octicon-link"></span></a>FAQ</h2>
+
+<p>1) How can I use pagination?</p>
+
+<p>Pagination is a useful mechanism to get more results as specified by the limit parameter. Therefore, we simply exploit the offset parameter in conjunction with a certain limit value. Let us assume that we are interested in articles related to the singer Madonna. When our iPool system includes 1000 related articles, we can get a list of the first 100 ones via querying</p>
+
+<div class="highlight highlight-javascript"><pre><span class="nx">https</span><span class="o">:</span><span class="c1">//ipool.s.asideas.de/api/v3/search?persons="Madonna"&amp;limit=100.</span>
+</pre></div>
+
+<p>For retrieving the next 100 articles (number 101 until number 200) of the list of all interesting articles we need to use an offset of 100 saying that we want to get the next 100 articles staring from position 100:</p>
+
+<div class="highlight highlight-javascript"><pre><span class="nx">https</span><span class="o">:</span><span class="c1">//ipool.s.asideas.de/api/v3/search?persons="Madonna"&amp;offset=100&amp;limit=100.</span>
+</pre></div>
+
+<p>To obtain the next 100 articles (number 201 until number 300) we shift the offset to 200:</p>
+
+<div class="highlight highlight-javascript"><pre><span class="nx">https</span><span class="o">:</span><span class="c1">//ipool.s.asideas.de/api/v3/search?persons="Madonna"&amp;offset=200&amp;limit=100.</span>
+</pre></div>
+
+<p>And so on.</p>
+
+<p>2) What is the difference between the hot topic and the trending endpoint?</p>
+
+<p>The hot topic endpoint determines topics that are mentioned most over all current documents. A time dimension is not taken into account.
+Following example query gives hot topics that are related to the person Madonna, but not to the person Michael Jackson. To express such a query, we filter Madonna positively and Michael Jackson negatively in the persons parameter, respectively:</p>
+
+<div class="highlight highlight-javascript"><pre><span class="nx">https</span><span class="o">:</span><span class="c1">//ipool.s.asideas.de/api/v3/topics/hot?persons="Madonna",-"Michael Jackson"</span>
+</pre></div>
+
+<p>In contrast, the trending endpoint retrieves topics with very quickly growing mention rates. That means, a topic can be trending in spite of having a relatively slow total number of mentions. In this case, it must show one of the best increasing rates.
+The next example query returns the trending topics for the last 10 days (default value). Thereby, we split our overall interval in ten equal parts, i.e. one day per part. Based on these smaller intervals we internally calculate the increasing involved hot topics (default value).</p>
+
+<div class="highlight highlight-javascript"><pre><span class="nx">https</span><span class="o">:</span><span class="c1">//ipool.s.asideas.de/api/v3/topics/trending?numberOfRequests=10</span>
+</pre></div>
+
+<p>3) What is the difference between the limit and the numberOfHotTopics parameter for the trending endpoint?</p>
+
+<p>The limit parameter restricts the number of returned topics. Contrarily, the numberOfHotTopics parameter bounds the internal computation basis. As result, we are able to reduce critical calculations by adjusting this parameter.
+The following query just consider the best 100 hot topics of the last 10 days to determine the trending ones:</p>
+
+<div class="highlight highlight-javascript"><pre><span class="nx">https</span><span class="o">:</span><span class="c1">//ipool.s.asideas.de/api/v3/topics/trending?numberOfHotTopics=100</span>
+</pre></div>
+
+<p>4) What does the parameter numberOfRequests mean?</p>
+
+<p>This parameter says how many times the specified interval is split for performing the underlying calculation of trending topics. For an example see above.</p>
+
+<p>5) How can I retrieve a picture?</p>
+
+<p>In order to download a specific picture you need either the object identifier or the external URL. Both entities are parts of the resulting JSON object achieved by a query sent to the search endpoint:</p>
+
+<div class="highlight highlight-javascript"><pre><span class="s2">"contentReferences"</span><span class="o">:</span> <span class="p">[</span> <span class="p">{</span>
+<span class="s2">"binaryIdentifier"</span><span class="o">:</span> <span class="s2">"31a79d4aa911d697d3bcd64fe07267d3"</span><span class="p">,</span>
+<span class="s2">"type"</span><span class="o">:</span> <span class="s2">"PICTURE"</span><span class="p">,</span>
+<span class="s2">"title"</span><span class="o">:</span> <span class="s2">"zschäpe 2"</span><span class="p">,</span>
+<span class="s2">"alternateText"</span><span class="o">:</span> <span class="s2">"NSU Prozess"</span><span class="p">,</span>
+<span class="s2">"caption"</span><span class="o">:</span><span class="s2">"Beate Zschäpe am 100. Prozesstag im Gerichtssaal im</span>
+<span class="s2">Oberlandesgericht in München"</span><span class="p">,</span> <span class="s2">"copyrights"</span><span class="o">:</span> <span class="p">[]</span>
+<span class="p">},</span> 
+<span class="p">...</span> 
+<span class="p">{</span>
+<span class="s2">"externalUrl"</span><span class="o">:</span> <span class="s2">"http://brightcove01.brightcove.com/21/8385562001/201404/3458/8385562001_3417079759001_20140401-120624-Interview-Hannelore-Crolly-Welt-mL-2000.mp4,</span>
+<span class="s2">"</span><span class="nx">type</span><span class="s2">": "</span><span class="nx">VIDEO</span><span class="s2">",</span>
+<span class="s2">"</span><span class="nx">title</span><span class="s2">": "</span><span class="nx">Zscha</span><span class="err">̈</span><span class="nx">pe</span> <span class="nx">zeigt</span> <span class="nx">absolut</span> <span class="nx">keine</span> <span class="nx">Reue</span><span class="err">"</span> 
+<span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+
+<p>Referenced media objects can either be downloaded directly by our API or from their original sources, see data field externalUrl. The availability of external media objects cannot be guaranteed.
+For downloading the picture with the binary identifier 31a79d4aa911d697d3bcd64fe07267d3 we make use of the object endpoint via</p>
+
+<div class="highlight highlight-javascript"><pre><span class="nx">https</span><span class="o">:</span><span class="c1">//ipool.s.asideas.de/api/v3/search/31a79d4aa911d697d3bcd64fe07267d3</span>
+</pre></div>
+
+<p>The presences of binary identifiers and external URLs are depending on the given source and publisher of the considered article. For instance, all pictures of the source escenic can be achieved via our object endpoint. Contrarily, videos have to be downloaded directly by their respective URLs.</p>
+
+<p>6) How can I get an overview of all available keywords?</p>
+
+<p>We can get a list of all available keywords by taking advantage of the hot topic endpoint specifying the entityType as keywords:</p>
+
+<div class="highlight highlight-javascript"><pre><span class="nx">https</span><span class="o">:</span><span class="c1">//ipool.s.asideas.de/api/v3/topics/hot?entityTypes=%22keywords%22.</span>
 </pre></div>
       </section>
       <footer>
