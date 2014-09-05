@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>iPool by Axel Springer Ideas Engineering GmbH</title>
+    <title>iPool by ipool</title>
 
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
@@ -137,7 +137,7 @@ Secret: 276ea410-29fb-11e4-8c21-0800200c9a66
 
 <p>Pagination is a useful mechanism to get more results as specified by the limit parameter. Therefore, we simply exploit the offset parameter in conjunction with a certain limit value. Let us assume that we are interested in articles related to the singer Madonna. When our iPool system includes 1000 related articles, we can get a list of the first 100 ones via querying</p>
 
-<div class="highlight highlight-javascript"><pre><span class="nx">https</span><span class="o">:</span><span class="c1">//ipool.s.asideas.de/api/v3/search?persons="Madonna"&amp;limit=100.</span>
+<div class="highlight highlight-javascript"><pre><span class="nx">https</span><span class="o">:</span><span class="c1">//ipool.s.asideas.de/api/v3/search?persons="Madonna"&amp;limit=100</span>
 </pre></div>
 
 <p>For retrieving the next 100 articles (number 101 until number 200) of the list of all interesting articles we need to use an offset of 100 saying that we want to get the next 100 articles staring from position 100:</p>
@@ -147,7 +147,7 @@ Secret: 276ea410-29fb-11e4-8c21-0800200c9a66
 
 <p>To obtain the next 100 articles (number 201 until number 300) we shift the offset to 200:</p>
 
-<div class="highlight highlight-javascript"><pre><span class="nx">https</span><span class="o">:</span><span class="c1">//ipool.s.asideas.de/api/v3/search?persons="Madonna"&amp;offset=200&amp;limit=100.</span>
+<div class="highlight highlight-javascript"><pre><span class="nx">https</span><span class="o">:</span><span class="c1">//ipool.s.asideas.de/api/v3/search?persons="Madonna"&amp;offset=200&amp;limit=100</span>
 </pre></div>
 
 <p>And so on.</p>
