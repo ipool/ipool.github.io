@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>iPool by Axel Springer Ideas Engineering GmbH</title>
+    <title>iPool by ipool</title>
 
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
@@ -28,15 +28,15 @@
       </header>
       <section>
         <h2>
-<a name="api-documentation" class="anchor" href="#api-documentation"><span class="octicon octicon-link"></span></a>API Documentation</h2>
+<a id="api-documentation" class="anchor" href="#api-documentation" aria-hidden="true"><span class="octicon octicon-link"></span></a>API Documentation</h2>
 
 <p><a href="http://www.asideas.de">Axel Springer Ideas Engineering</a> is developing a general platform for distributing and providing content as a company-wide service.</p>
 
 <p><strong>Contact us any time for support and to get access to the iPool API:</strong></p>
 
-<p>Andreas Maier - Mail: <a href="mailto:andreas.maier@asideas.de?subject=iPool%20API%20access">andreas.maier@asideas.de</a> - Cell: <a href="callto:+4915173026414">+49 151 730 26 414</a> - Skype: <a href="skype:andreas_asideas?call">Call</a> or <a href="skype:andreas_asideas?chat">Chat</a></p>
+<p><a href="mailto:andreas.maier@asideas.de?subject=iPool%20API%20access">andreas.maier@asideas.de</a> - +49 151 730 26 414 - Skype Call - Skype Chat</p>
 
-<p>Benjamin Brandt - Mail: <a href="mailto:benjamin.brandt@asideas.de?subject=iPool%20API%20access">benjamin.brandt@asideas.de</a> - Cell: <a href="callto:++4915144047219">+49 151 440 47 219</a> - Twitter: <a href="https://twitter.com/bennibrandt">@bennibrandt</a></p>
+<p><a href="mailto:benjamin.brandt@asideas.de?subject=iPool%20API%20access">benjamin.brandt@asideas.de</a> - +49 151 440 47 219 - <a href="https://twitter.com/bennibrandt">@bennibrandt</a></p>
 
 <p>The key component of this platform is the <strong>iPool information hub</strong> that offers functionality for</p>
 
@@ -76,9 +76,9 @@
 <p><em>This is a work in progress page.</em></p>
 
 <h2>
-<a name="api-registration" class="anchor" href="#api-registration"><span class="octicon octicon-link"></span></a>API Registration</h2>
+<a id="api-registration" class="anchor" href="#api-registration" aria-hidden="true"><span class="octicon octicon-link"></span></a>API Registration</h2>
 
-<p>Applications to the iPool API are approved individually for each new project. For the <a href="http://ebspreneurship.de/hackathon/">Smarthouse FinTech Hackathon</a> following time limited OAuth access credentials are provided:</p>
+<p>Applications to the iPool API are approved individually for each new project. For the <a href="https://www.hackerleague.org/hackathons/media-hack-day-video">Media Hack Day Video 2014</a> following time limited OAuth access credentials are provided:</p>
 
 <pre><code>Key: hackathon
 Secret: 33f3fb11-59b4-4a38-a549-27bb4628d1af
@@ -87,72 +87,63 @@ Secret: 33f3fb11-59b4-4a38-a549-27bb4628d1af
 <p>Above credentials will expire on <strong>2014-12-31</strong>. Long lived credentials are provided on request.</p>
 
 <h2>
-<a name="api-examples" class="anchor" href="#api-examples"><span class="octicon octicon-link"></span></a>API Examples</h2>
+<a id="api-examples" class="anchor" href="#api-examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>API Examples</h2>
 
 <p>1) Retrieve content provided by music magazines:</p>
 
-<div class="highlight highlight-javascript"><pre><span class="nx">https</span><span class="o">:</span><span class="c1">//ipool.s.asideas.de:443/api/v3/search?limit=25&amp;publisher="www.metal-hammer.de","www.musikexpress.de","www.rollingstone.de"</span>
-</pre></div>
+<div class="highlight highlight-javascript"><pre>https<span class="o">:</span><span class="c1">//ipool.s.asideas.de:443/api/v3/search?limit=25&amp;publisher="www.metal-hammer.de","www.musikexpress.de","www.rollingstone.de"</span></pre></div>
 
 <p>2) Find some content about your favourite singer Udo Lindenberg:</p>
 
-<div class="highlight highlight-javascript"><pre><span class="nx">https</span><span class="o">:</span><span class="c1">//ipool.s.asideas.de:443/api/v3/search?limit=25&amp;q="udo lindenberg"</span>
-</pre></div>
+<div class="highlight highlight-javascript"><pre>https<span class="o">:</span><span class="c1">//ipool.s.asideas.de:443/api/v3/search?limit=25&amp;q="udo lindenberg"</span></pre></div>
 
 <p>3) Find some pictures related to Udo Lindenberg:</p>
 
-<div class="highlight highlight-javascript"><pre><span class="nx">https</span><span class="o">:</span><span class="c1">//ipool.s.asideas.de:443/api/v3/search?limit=25&amp;sources="escenic"&amp;q=udo lindenberg</span>
+<div class="highlight highlight-javascript"><pre>https<span class="o">:</span><span class="c1">//ipool.s.asideas.de:443/api/v3/search?limit=25&amp;sources="escenic"&amp;q=udo lindenberg</span>
 
-<span class="s2">"contentReferences"</span><span class="o">:</span> <span class="p">[</span>
-<span class="p">{</span>
-  <span class="s2">"binaryIdentifier"</span><span class="o">:</span> <span class="s2">"ba510dc99b37854928cf553c96144caa"</span><span class="p">,</span>
-  <span class="p">...</span>
-<span class="p">}</span>
-</pre></div>
+<span class="s2">"contentReferences"</span><span class="o">:</span> [
+{
+  <span class="s2">"binaryIdentifier"</span><span class="o">:</span> <span class="s2">"ba510dc99b37854928cf553c96144caa"</span>,
+  ...
+}</pre></div>
 
 <p>4) Find articles about Udo Lindenbergs musical called "Hinterm Horizont":</p>
 
-<div class="highlight highlight-javascript"><pre><span class="nx">https</span><span class="o">:</span><span class="c1">//ipool.s.asideas.de:443/api/v3/search?persons="udo lindenberg"&amp;limit=25&amp;q="Hinterm Horizont"</span>
-</pre></div>
+<div class="highlight highlight-javascript"><pre>https<span class="o">:</span><span class="c1">//ipool.s.asideas.de:443/api/v3/search?persons="udo lindenberg"&amp;limit=25&amp;q="Hinterm Horizont"</span></pre></div>
 
 <p>Get a related article to Udo Lindenbergs musical:</p>
 
-<div class="highlight highlight-javascript"><pre><span class="s2">"relatedReferences"</span><span class="o">:</span> <span class="p">[</span>
-<span class="p">{</span>
-  <span class="s2">"identifier"</span><span class="o">:</span> <span class="s2">"cece43dc263ae3bca9385c8ddccb6890"</span><span class="p">,</span>
+<div class="highlight highlight-javascript"><pre><span class="s2">"relatedReferences"</span><span class="o">:</span> [
+{
+  <span class="s2">"identifier"</span><span class="o">:</span> <span class="s2">"cece43dc263ae3bca9385c8ddccb6890"</span>,
   <span class="s2">"type"</span><span class="o">:</span> <span class="s2">"ARTICLE"</span>
-<span class="p">},</span>
-<span class="p">...</span>
-<span class="p">]</span>
+},
+...
+]
 
 
-<span class="nx">https</span><span class="o">:</span><span class="c1">//ipool.s.asideas.de:443/api/v3/related/cece43dc263ae3bca9385c8ddccb6890</span>
-</pre></div>
+https<span class="o">:</span><span class="c1">//ipool.s.asideas.de:443/api/v3/related/cece43dc263ae3bca9385c8ddccb6890</span></pre></div>
 
 <p>5) Retrieve music related content by category:</p>
 
-<div class="highlight highlight-javascript"><pre><span class="nx">https</span><span class="o">:</span><span class="c1">//ipool.s.asideas.de:443/api/v3/search?category="Musik"</span>
-</pre></div>
+<div class="highlight highlight-javascript"><pre>https<span class="o">:</span><span class="c1">//ipool.s.asideas.de:443/api/v3/search?category="Musik"</span></pre></div>
 
 <h2>
-<a name="faq" class="anchor" href="#faq"><span class="octicon octicon-link"></span></a>FAQ</h2>
+<a id="faq" class="anchor" href="#faq" aria-hidden="true"><span class="octicon octicon-link"></span></a>FAQ</h2>
 
 <p><strong>1) How can I use pagination?</strong></p>
 
 <p>Pagination is a useful mechanism to get more results as specified by the limit parameter. Therefore, we simply exploit the offset parameter in conjunction with a certain limit value. Let us assume that we are interested in articles related to the singer Madonna. When our iPool system includes 1000 related articles, we can get a list of the first 100 ones via querying</p>
 
-<div class="highlight highlight-javascript"><pre><span class="nx">https</span><span class="o">:</span><span class="c1">//ipool.s.asideas.de/api/v3/search?persons="Madonna"&amp;limit=100</span>
-</pre></div>
+<div class="highlight highlight-javascript"><pre>https<span class="o">:</span><span class="c1">//ipool.s.asideas.de/api/v3/search?persons="Madonna"&amp;limit=100</span></pre></div>
 
 <p>For retrieving the next 100 articles (number 101 until number 200) of the list of all interesting articles we need to use an offset of 100 saying that we want to get the next 100 articles staring from position 100:</p>
 
-<div class="highlight highlight-javascript"><pre><span class="nx">https</span><span class="o">:</span><span class="c1">//ipool.s.asideas.de/api/v3/search?persons="Madonna"&amp;offset=100&amp;limit=100</span>
-</pre></div>
+<div class="highlight highlight-javascript"><pre>https<span class="o">:</span><span class="c1">//ipool.s.asideas.de/api/v3/search?persons="Madonna"&amp;offset=100&amp;limit=100</span></pre></div>
 
 <p>To obtain the next 100 articles (number 201 until number 300) we shift the offset to 200:</p>
 
-<div class="highlight highlight-javascript"><pre><span class="nx">https</span><span class="o">:</span><span class="c1">//ipool.s.asideas.de/api/v3/search?persons="Madonna"&amp;offset=200&amp;limit=100</span>
-</pre></div>
+<div class="highlight highlight-javascript"><pre>https<span class="o">:</span><span class="c1">//ipool.s.asideas.de/api/v3/search?persons="Madonna"&amp;offset=200&amp;limit=100</span></pre></div>
 
 <p>And so on.</p>
 
@@ -161,22 +152,19 @@ Secret: 33f3fb11-59b4-4a38-a549-27bb4628d1af
 <p>The hot topic endpoint determines topics that are mentioned most over all current documents. A time dimension is not taken into account.
 Following example query gives hot topics that are related to the person Madonna, but not to the person Michael Jackson. To express such a query, we filter Madonna positively and Michael Jackson negatively in the persons parameter, respectively:</p>
 
-<div class="highlight highlight-javascript"><pre><span class="nx">https</span><span class="o">:</span><span class="c1">//ipool.s.asideas.de/api/v3/topics/hot?persons="Madonna",-"Michael Jackson"</span>
-</pre></div>
+<div class="highlight highlight-javascript"><pre>https<span class="o">:</span><span class="c1">//ipool.s.asideas.de/api/v3/topics/hot?persons="Madonna",-"Michael Jackson"</span></pre></div>
 
 <p>In contrast, the trending endpoint retrieves topics with very quickly growing mention rates. That means, a topic can be trending in spite of having a relatively slow total number of mentions. In this case, it must show one of the best increasing rates.
 The next example query returns the trending topics for the last 10 days (default value). Thereby, we split our overall interval in ten equal parts, i.e. one day per part. Based on these smaller intervals we internally calculate the increasing involved hot topics (default value).</p>
 
-<div class="highlight highlight-javascript"><pre><span class="nx">https</span><span class="o">:</span><span class="c1">//ipool.s.asideas.de/api/v3/topics/trending?numberOfRequests=10</span>
-</pre></div>
+<div class="highlight highlight-javascript"><pre>https<span class="o">:</span><span class="c1">//ipool.s.asideas.de/api/v3/topics/trending?numberOfRequests=10</span></pre></div>
 
 <p><strong>3) What is the difference between the limit and the numberOfHotTopics parameter for the trending endpoint?</strong></p>
 
 <p>The limit parameter restricts the number of returned topics. Contrarily, the numberOfHotTopics parameter bounds the internal computation basis. As result, we are able to reduce critical calculations by adjusting this parameter.
 The following query just consider the best 100 hot topics of the last 10 days to determine the trending ones:</p>
 
-<div class="highlight highlight-javascript"><pre><span class="nx">https</span><span class="o">:</span><span class="c1">//ipool.s.asideas.de/api/v3/topics/trending?numberOfHotTopics=100</span>
-</pre></div>
+<div class="highlight highlight-javascript"><pre>https<span class="o">:</span><span class="c1">//ipool.s.asideas.de/api/v3/topics/trending?numberOfHotTopics=100</span></pre></div>
 
 <p><strong>4) What does the parameter numberOfRequests mean?</strong></p>
 
@@ -186,28 +174,26 @@ The following query just consider the best 100 hot topics of the last 10 days to
 
 <p>In order to download a specific picture you need either the object identifier or the external URL. Both entities are parts of the resulting JSON object achieved by a query sent to the search endpoint:</p>
 
-<div class="highlight highlight-javascript"><pre><span class="s2">"contentReferences"</span><span class="o">:</span> <span class="p">[</span> <span class="p">{</span>
-<span class="s2">"binaryIdentifier"</span><span class="o">:</span> <span class="s2">"31a79d4aa911d697d3bcd64fe07267d3"</span><span class="p">,</span>
-<span class="s2">"type"</span><span class="o">:</span> <span class="s2">"PICTURE"</span><span class="p">,</span>
-<span class="s2">"title"</span><span class="o">:</span> <span class="s2">"zschäpe 2"</span><span class="p">,</span>
-<span class="s2">"alternateText"</span><span class="o">:</span> <span class="s2">"NSU Prozess"</span><span class="p">,</span>
+<div class="highlight highlight-javascript"><pre><span class="s2">"contentReferences"</span><span class="o">:</span> [ {
+<span class="s2">"binaryIdentifier"</span><span class="o">:</span> <span class="s2">"31a79d4aa911d697d3bcd64fe07267d3"</span>,
+<span class="s2">"type"</span><span class="o">:</span> <span class="s2">"PICTURE"</span>,
+<span class="s2">"title"</span><span class="o">:</span> <span class="s2">"zschäpe 2"</span>,
+<span class="s2">"alternateText"</span><span class="o">:</span> <span class="s2">"NSU Prozess"</span>,
 <span class="s2">"caption"</span><span class="o">:</span><span class="s2">"Beate Zschäpe am 100. Prozesstag im Gerichtssaal im</span>
-<span class="s2">Oberlandesgericht in München"</span><span class="p">,</span> <span class="s2">"copyrights"</span><span class="o">:</span> <span class="p">[]</span>
-<span class="p">},</span> 
-<span class="p">...</span> 
-<span class="p">{</span>
+<span class="s2">Oberlandesgericht in München"</span>, <span class="s2">"copyrights"</span><span class="o">:</span> []
+}, 
+... 
+{
 <span class="s2">"externalUrl"</span><span class="o">:</span> <span class="s2">"http://brightcove01.brightcove.com/21/8385562001/201404/3458/8385562001_3417079759001_20140401-120624-Interview-Hannelore-Crolly-Welt-mL-2000.mp4,</span>
-<span class="s2">"</span><span class="nx">type</span><span class="s2">": "</span><span class="nx">VIDEO</span><span class="s2">",</span>
-<span class="s2">"</span><span class="nx">title</span><span class="s2">": "</span><span class="nx">Zscha</span><span class="err">̈</span><span class="nx">pe</span> <span class="nx">zeigt</span> <span class="nx">absolut</span> <span class="nx">keine</span> <span class="nx">Reue</span><span class="err">"</span> 
-<span class="p">}</span>
-<span class="p">]</span>
-</pre></div>
+<span class="s2">"</span>type<span class="s2">": "</span>VIDEO<span class="s2">",</span>
+<span class="s2">"</span>title<span class="s2">": "</span>Zschäpe zeigt absolut keine Reue<span class="s2">" </span>
+<span class="s2">}</span>
+<span class="s2">]</span></pre></div>
 
 <p>Referenced media objects can either be downloaded directly by our API or from their original sources, see data field externalUrl. The availability of external media objects cannot be guaranteed.
 For downloading the picture with the binary identifier 31a79d4aa911d697d3bcd64fe07267d3 we make use of the object endpoint via</p>
 
-<div class="highlight highlight-javascript"><pre><span class="nx">https</span><span class="o">:</span><span class="c1">//ipool.s.asideas.de/api/v3/object/31a79d4aa911d697d3bcd64fe07267d3?encodeBase64=true</span>
-</pre></div>
+<div class="highlight highlight-javascript"><pre>https<span class="o">:</span><span class="c1">//ipool.s.asideas.de/api/v3/object/31a79d4aa911d697d3bcd64fe07267d3?encodeBase64=true</span></pre></div>
 
 <p>The presences of binary identifiers and external URLs are depending on the given source and publisher of the considered article. For instance, all pictures of the source escenic can be achieved via our object endpoint. Contrarily, videos have to be downloaded directly by their respective URLs.</p>
 
@@ -215,8 +201,7 @@ For downloading the picture with the binary identifier 31a79d4aa911d697d3bcd64fe
 
 <p>We can get a list of all available keywords by taking advantage of the hot topic endpoint specifying the entityType as keywords:</p>
 
-<div class="highlight highlight-javascript"><pre><span class="nx">https</span><span class="o">:</span><span class="c1">//ipool.s.asideas.de/api/v3/topics/hot?entityTypes="keywords"</span>
-</pre></div>
+<div class="highlight highlight-javascript"><pre>https<span class="o">:</span><span class="c1">//ipool.s.asideas.de/api/v3/topics/hot?entityTypes="keywords"</span></pre></div>
       </section>
       <footer>
         <p><small>Hosted on <a href="http://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
