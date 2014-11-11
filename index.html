@@ -123,43 +123,29 @@ articles from Metal Hammer, Musik Express and Rolling Stone by </p>
 
 <p><strong>3) How can I find related content ?</strong></p>
 
-<div class="highlight highlight-javascript"><pre>https<span class="o">:</span><span class="c1">//ipool.s.asideas.de:443/api/v3/search?limit=25&amp;q="udo lindenberg"</span></pre></div>
+<p>In order to carry out a full text search in the article contents, we use the 
+query parameter q. For instance, the next request returns all articles which 
+are related to the term "Mauerfall".</p>
 
-<p><strong>3) How can I find and download pictures ?</strong></p>
+<div class="highlight highlight-javascript"><pre>https<span class="o">:</span><span class="c1">//ipool.s.asideas.de:443/api/v3/search?limit=25&amp;q="Mauerfall"</span></pre></div>
 
-<p>For this purpose, you set the type parameter to "picture", e.g.</p>
+<p><strong>4) How can I find and download pictures ?</strong></p>
+
+<p>When the parameter type is set to "picture", you just get articles embedding a
+picture, e.g.</p>
 
 <div class="highlight highlight-javascript"><pre>https<span class="o">:</span><span class="c1">//ipool.s.asideas.de:443/api/v3/search?limit=25&amp;type="picture"&amp;q="udo lindenberg"</span></pre></div>
 
-<p>"contentReferences": [
+<p>In contrast to videos, pictures can also be directly downloaded by the object endpoint.
+Therefore, you have first to read the binaryIdentifier field: </p>
+
+<div class="highlight highlight-javascript"><pre><span class="s2">"contentReferences"</span><span class="o">:</span> [
 {
-  "binaryIdentifier": "f6c0020a10d6ee4fb85ee92ec59f8608",
+  <span class="s2">"binaryIdentifier"</span><span class="o">:</span> <span class="s2">"5744a79d07458a0a3a167775f96ec11c"</span>,
   ...
-}</p>
+}</pre></div>
 
-<pre><code>
-**4) How can I get related articles ?**
-
-5) Find articles about Udo Lindenbergs musical called "Hinterm Horizont":
-
-```javascript
-https://ipool.s.asideas.de:443/api/v3/search?persons="udo lindenberg"&amp;limit=25&amp;q="Hinterm Horizont"
-</code></pre>
-
-<p>Get a related article to Udo Lindenbergs musical:</p>
-
-<div class="highlight highlight-javascript"><pre><span class="s2">"relatedReferences"</span><span class="o">:</span> [
-{
-  <span class="s2">"identifier"</span><span class="o">:</span> <span class="s2">"cece43dc263ae3bca9385c8ddccb6890"</span>,
-  <span class="s2">"type"</span><span class="o">:</span> <span class="s2">"ARTICLE"</span>
-},
-...
-]
-
-
-https<span class="o">:</span><span class="c1">//ipool.s.asideas.de:443/api/v3/related/cece43dc263ae3bca9385c8ddccb6890</span></pre></div>
-
-<p>6) Retrieve music related content by category:</p>
+<p><strong>6) Retrieve music related content by category</strong></p>
 
 <div class="highlight highlight-javascript"><pre>https<span class="o">:</span><span class="c1">//ipool.s.asideas.de:443/api/v3/search?category="Musik"</span></pre></div>
 
