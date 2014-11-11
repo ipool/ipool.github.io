@@ -112,27 +112,36 @@ Secret: 33f3fb11-59b4-4a38-a549-27bb4628d1af
 
 <p>Other document types are given by "article", "picture" and "picture_gallery".</p>
 
-<p>2) Retrieve content provided by music magazines:</p>
+<p><strong>2) How can I filter content from specific magazines ?</strong></p>
+
+<p>In order to select certain magazines, newspapers and online services you need to 
+apply the publisher parameter. For example, it is possible to retrieve all
+articles from Metal Hammer, Musik Express and Rolling Stone by </p>
 
 <div class="highlight highlight-javascript"><pre>https<span class="o">:</span><span class="c1">//ipool.s.asideas.de:443/api/v3/search?limit=25&amp;publisher="www.metal-hammer.de","www.musikexpress.de","www.rollingstone.de"</span></pre></div>
 
-<p>3) Find some content about your favourite singer Udo Lindenberg:</p>
+<p><strong>3) How can I find related content ?</strong></p>
 
 <div class="highlight highlight-javascript"><pre>https<span class="o">:</span><span class="c1">//ipool.s.asideas.de:443/api/v3/search?limit=25&amp;q="udo lindenberg"</span></pre></div>
 
-<p>4) Find some pictures related to Udo Lindenberg:</p>
+<p><strong>3) How can I find and download pictures ?</strong></p>
 
-<div class="highlight highlight-javascript"><pre>https<span class="o">:</span><span class="c1">//ipool.s.asideas.de:443/api/v3/search?limit=25&amp;sources="escenic"&amp;q=udo lindenberg</span>
+<p>For this purpose, you set the type parameter to "picture", e.g.</p>
 
-<span class="s2">"contentReferences"</span><span class="o">:</span> [
+<div class="highlight highlight-javascript"><pre>https<span class="o">:</span><span class="c1">//ipool.s.asideas.de:443/api/v3/search?limit=25&amp;type="picture"&amp;q="udo lindenberg"</span></pre></div>
+
+<p>"contentReferences": [
 {
-  <span class="s2">"binaryIdentifier"</span><span class="o">:</span> <span class="s2">"ba510dc99b37854928cf553c96144caa"</span>,
+  "binaryIdentifier": "f6c0020a10d6ee4fb85ee92ec59f8608",
   ...
-}</pre></div>
+}</p>
 
-<p>5) Find articles about Udo Lindenbergs musical called "Hinterm Horizont":</p>
+<pre><code>
+5) Find articles about Udo Lindenbergs musical called "Hinterm Horizont":
 
-<div class="highlight highlight-javascript"><pre>https<span class="o">:</span><span class="c1">//ipool.s.asideas.de:443/api/v3/search?persons="udo lindenberg"&amp;limit=25&amp;q="Hinterm Horizont"</span></pre></div>
+```javascript
+https://ipool.s.asideas.de:443/api/v3/search?persons="udo lindenberg"&amp;limit=25&amp;q="Hinterm Horizont"
+</code></pre>
 
 <p>Get a related article to Udo Lindenbergs musical:</p>
 
