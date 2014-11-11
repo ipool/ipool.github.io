@@ -97,17 +97,14 @@ Secret: 33f3fb11-59b4-4a38-a549-27bb4628d1af
 
 <p>If you want to access or download a specific video, the provided external link can be extracted from the achieved JSON result. For instance, you can ask for documents with videos about the latest Udo Lindenberg concert during the Mauerfall celebration close to the Brandenburg gate:   </p>
 
-<div class="highlight highlight-javascript"><pre>https<span class="o">:</span><span class="c1">//ipool.s.asideas.de:443/api/v3/search?persons="Lindenberg"</span>
-<span class="o">&amp;</span>types<span class="o">=</span><span class="s2">"video"</span><span class="o">&amp;</span>q<span class="o">=</span><span class="s2">"Mauerfall"</span><span class="o">&amp;</span>geos<span class="o">=</span><span class="s2">"Brandenburger Tor"</span></pre></div>
+<div class="highlight highlight-javascript"><pre>https<span class="o">:</span><span class="c1">//ipool.s.asideas.de:443/api/v3/search?persons="Lindenberg"&amp;types="video"&amp;q="Mauerfall"&amp;geos="Brandenburger Tor"</span></pre></div>
 
 <p>Then, the resulting JSON document contains several video links:</p>
 
 <div class="highlight highlight-javascript"><pre>... 
 <span class="s2">"contentReferences"</span><span class="o">:</span> [
 {
-    <span class="s2">"externalUrl"</span><span class="o">:</span> <span class="s2">"http://brightcove01.brightcove.com/21/8385562001/201411/</span>
-<span class="s2">     2439/8385562001_3883368544001_2014-11-09T205130Z-1-LOVEAA81LXTAA-RTRMADV-</span>
-<span class="s2">     STREAM-6756-16X9-MPG-ONLINE-KONZERT-O-H264-640x360.mp4"</span>,
+    <span class="s2">"externalUrl"</span><span class="o">:</span> <span class="s2">"http://brightcove01.brightcove.com/21/8385562001/201411/2439/8385562001_3883368544001_2014-11-09T205130Z1LOVEAA81LXTAA-RTRMADV-STREAM-6756-16X9-MPG-ONLINE-KONZERT-O-H264-640x360.mp4"</span>,
     <span class="s2">"type"</span><span class="o">:</span> <span class="s2">"VIDEO"</span>,
     <span class="s2">"title"</span><span class="o">:</span> <span class="s2">"Ganz Berlin ein bisschen verrückt"</span>
 }, ...]
