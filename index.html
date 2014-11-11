@@ -1,32 +1,32 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
+
   <head>
-    <meta charset="utf-8">
+    <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>iPool by Axel Springer Ideas Engineering GmbH</title>
+    <meta name="description" content="iPool : The central component for search and distribution of content within Axel Springer.">
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="javascripts/scale.fix.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>iPool</title>
   </head>
+
   <body>
-    <div class="wrapper">
-      <header>
-        <h1 class="header">iPool</h1>
-        <p class="header">The central component for search and distribution of content within Axel Springer.</p>
 
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/ipool">View on GitHub</a>
 
+          <h1 id="project_title">iPool</h1>
+          <h2 id="project_tagline">The central component for search and distribution of content within Axel Springer.</h2>
 
-        <ul>
-          <li><a class="buttons github" href="https://github.com/ipool">GitHub Profile</a></li>
-        </ul>
+        </header>
+    </div>
 
-      </header>
-      <section>
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
         <h2>
 <a id="api-documentation" class="anchor" href="#api-documentation" aria-hidden="true"><span class="octicon octicon-link"></span></a>API Documentation</h2>
 
@@ -87,17 +87,40 @@ Secret: 33f3fb11-59b4-4a38-a549-27bb4628d1af
 <p>Above credentials will expire on <strong>2014-12-31</strong>. Long lived credentials are provided on request.</p>
 
 <h2>
-<a id="api-examples" class="anchor" href="#api-examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>API Examples</h2>
+<a id="faq" class="anchor" href="#faq" aria-hidden="true"><span class="octicon octicon-link"></span></a>FAQ</h2>
 
-<p>1) Retrieve content provided by music magazines:</p>
+<p><strong>1) How can I access a video via IPool  ?</strong></p>
+
+<p>IPool provides metadata and links to videos that are embedded in different publications. To retrieve documents that including videos the search parameter "type" has to be specified as "video":     </p>
+
+<div class="highlight highlight-javascript"><pre>https<span class="o">:</span><span class="c1">//ipool.s.asideas.de:443/api/v3/search?limit=25&amp;type="video"</span></pre></div>
+
+<p>If you want to access or download a specific video, the provided external link can be extracted from the achieved JSON result. For instance, you can ask for documents with videos about the latest Udo Lindenberg concert during the Mauerfall celebration close to the Brandenburg gate:   </p>
+
+<div class="highlight highlight-javascript"><pre>https<span class="o">:</span><span class="c1">//ipool.s.asideas.de:443/api/v3/search?persons="Udo Lindenberg"&amp;types="video"&amp;q="Mauerfall"&amp;geos="Brandenburger Tor"</span></pre></div>
+
+<p>Then, the resulting JSON document contains several video links:</p>
+
+<div class="highlight highlight-javascript"><pre>... 
+<span class="s2">"contentReferences"</span><span class="o">:</span> [
+{
+    <span class="s2">"externalUrl"</span><span class="o">:</span> <span class="s2">"http://brightcove01.brightcove.com/21/8385562001/201411/2439/8385562001_3883368544001_2014-11-09T205130Z-1-LOVEAA81LXTAA-RTRMADV-STREAM-6756-16X9-MPG-ONLINE-KONZERT-O-H264-640x360.mp4"</span>,
+    <span class="s2">"type"</span><span class="o">:</span> <span class="s2">"VIDEO"</span>,
+    <span class="s2">"title"</span><span class="o">:</span> <span class="s2">"Ganz Berlin ein bisschen verrückt"</span>
+}, ...]
+... </pre></div>
+
+<p>Other document types are given by "article", "picture" and "picture_gallery".</p>
+
+<p>2) Retrieve content provided by music magazines:</p>
 
 <div class="highlight highlight-javascript"><pre>https<span class="o">:</span><span class="c1">//ipool.s.asideas.de:443/api/v3/search?limit=25&amp;publisher="www.metal-hammer.de","www.musikexpress.de","www.rollingstone.de"</span></pre></div>
 
-<p>2) Find some content about your favourite singer Udo Lindenberg:</p>
+<p>3) Find some content about your favourite singer Udo Lindenberg:</p>
 
 <div class="highlight highlight-javascript"><pre>https<span class="o">:</span><span class="c1">//ipool.s.asideas.de:443/api/v3/search?limit=25&amp;q="udo lindenberg"</span></pre></div>
 
-<p>3) Find some pictures related to Udo Lindenberg:</p>
+<p>4) Find some pictures related to Udo Lindenberg:</p>
 
 <div class="highlight highlight-javascript"><pre>https<span class="o">:</span><span class="c1">//ipool.s.asideas.de:443/api/v3/search?limit=25&amp;sources="escenic"&amp;q=udo lindenberg</span>
 
@@ -107,7 +130,7 @@ Secret: 33f3fb11-59b4-4a38-a549-27bb4628d1af
   ...
 }</pre></div>
 
-<p>4) Find articles about Udo Lindenbergs musical called "Hinterm Horizont":</p>
+<p>5) Find articles about Udo Lindenbergs musical called "Hinterm Horizont":</p>
 
 <div class="highlight highlight-javascript"><pre>https<span class="o">:</span><span class="c1">//ipool.s.asideas.de:443/api/v3/search?persons="udo lindenberg"&amp;limit=25&amp;q="Hinterm Horizont"</span></pre></div>
 
@@ -124,14 +147,11 @@ Secret: 33f3fb11-59b4-4a38-a549-27bb4628d1af
 
 https<span class="o">:</span><span class="c1">//ipool.s.asideas.de:443/api/v3/related/cece43dc263ae3bca9385c8ddccb6890</span></pre></div>
 
-<p>5) Retrieve music related content by category:</p>
+<p>6) Retrieve music related content by category:</p>
 
 <div class="highlight highlight-javascript"><pre>https<span class="o">:</span><span class="c1">//ipool.s.asideas.de:443/api/v3/search?category="Musik"</span></pre></div>
 
-<h2>
-<a id="faq" class="anchor" href="#faq" aria-hidden="true"><span class="octicon octicon-link"></span></a>FAQ</h2>
-
-<p><strong>1) How can I use pagination?</strong></p>
+<p><strong>7) How can I use pagination?</strong></p>
 
 <p>Pagination is a useful mechanism to get more results as specified by the limit parameter. Therefore, we simply exploit the offset parameter in conjunction with a certain limit value. Let us assume that we are interested in articles related to the singer Madonna. When our iPool system includes 1000 related articles, we can get a list of the first 100 ones via querying</p>
 
@@ -147,7 +167,7 @@ https<span class="o">:</span><span class="c1">//ipool.s.asideas.de:443/api/v3/re
 
 <p>And so on.</p>
 
-<p><strong>2) What is the difference between the hot topic and the trending endpoint?</strong></p>
+<p><strong>8) What is the difference between the hot topic and the trending endpoint?</strong></p>
 
 <p>The hot topic endpoint determines topics that are mentioned most over all current documents. A time dimension is not taken into account.
 Following example query gives hot topics that are related to the person Madonna, but not to the person Michael Jackson. To express such a query, we filter Madonna positively and Michael Jackson negatively in the persons parameter, respectively:</p>
@@ -159,18 +179,18 @@ The next example query returns the trending topics for the last 10 days (default
 
 <div class="highlight highlight-javascript"><pre>https<span class="o">:</span><span class="c1">//ipool.s.asideas.de/api/v3/topics/trending?numberOfRequests=10</span></pre></div>
 
-<p><strong>3) What is the difference between the limit and the numberOfHotTopics parameter for the trending endpoint?</strong></p>
+<p><strong>9) What is the difference between the limit and the numberOfHotTopics parameter for the trending endpoint?</strong></p>
 
 <p>The limit parameter restricts the number of returned topics. Contrarily, the numberOfHotTopics parameter bounds the internal computation basis. As result, we are able to reduce critical calculations by adjusting this parameter.
 The following query just consider the best 100 hot topics of the last 10 days to determine the trending ones:</p>
 
 <div class="highlight highlight-javascript"><pre>https<span class="o">:</span><span class="c1">//ipool.s.asideas.de/api/v3/topics/trending?numberOfHotTopics=100</span></pre></div>
 
-<p><strong>4) What does the parameter numberOfRequests mean?</strong></p>
+<p><strong>10) What does the parameter numberOfRequests mean?</strong></p>
 
 <p>This parameter says how many times the specified interval is split for performing the underlying calculation of trending topics. For an example see above.</p>
 
-<p><strong>5) How can I retrieve a picture?</strong></p>
+<p><strong>11) How can I retrieve a picture?</strong></p>
 
 <p>In order to download a specific picture you need either the object identifier or the external URL. Both entities are parts of the resulting JSON object achieved by a query sent to the search endpoint:</p>
 
@@ -197,18 +217,22 @@ For downloading the picture with the binary identifier 31a79d4aa911d697d3bcd64fe
 
 <p>The presences of binary identifiers and external URLs are depending on the given source and publisher of the considered article. For instance, all pictures of the source escenic can be achieved via our object endpoint. Contrarily, videos have to be downloaded directly by their respective URLs.</p>
 
-<p><strong>6) How can I get an overview of all available keywords?</strong></p>
+<p><strong>12) How can I get an overview of all available keywords?</strong></p>
 
 <p>We can get a list of all available keywords by taking advantage of the hot topic endpoint specifying the entityType as keywords:</p>
 
 <div class="highlight highlight-javascript"><pre>https<span class="o">:</span><span class="c1">//ipool.s.asideas.de/api/v3/topics/hot?entityTypes="keywords"</span></pre></div>
       </section>
-      <footer>
-        <p><small>Hosted on <a href="http://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
       </footer>
     </div>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-		          <script type="text/javascript">
+
+              <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
           </script>
@@ -218,6 +242,7 @@ For downloading the picture with the binary identifier 31a79d4aa911d697d3bcd64fe
             pageTracker._trackPageview();
             } catch(err) {}
           </script>
+
 
   </body>
 </html>
