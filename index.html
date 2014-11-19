@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>iPool by Axel Springer Ideas Engineering GmbH</title>
+    <title>iPool by ipool</title>
 
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
@@ -34,11 +34,14 @@
 
 <p><strong>Contact us any time for support and to get access to the iPool API:</strong></p>
 
-<p>Benjamin Brandt - Mail: <a href="mailto:benjamin.brandt@asideas.de?subject=iPool%20API%20access">benjamin.brandt@asideas.de</a>  </p>
-
-<p>Andreas Maier - Mail: <a href="mailto:andreas.maier@asideas.de?subject=iPool%20API%20access">andreas.maier@asideas.de</a>  </p>
-
-<p>Josiane Milanez - Mail: <a href="mailto:josiane.milanez@asideas.de?subject=iPool%20API%20access">josiane.milanez@asideas.de</a></p>
+<ul>
+<li>Benjamin Brandt - Mail: <a href="mailto:benjamin.brandt@asideas.de?subject=iPool%20API%20access">benjamin.brandt@asideas.de</a><br>
+</li>
+<li>Andreas Maier - Mail: <a href="mailto:andreas.maier@asideas.de?subject=iPool%20API%20access">andreas.maier@asideas.de</a><br>
+</li>
+<li>Josiane Milanez - Mail: <a href="mailto:josiane.milanez@asideas.de?subject=iPool%20API%20access">josiane.milanez@asideas.de</a>
+</li>
+</ul>
 
 <p>The key component of this platform is the <strong>iPool information hub</strong> that offers functionality for</p>
 
@@ -102,20 +105,20 @@ Secret: 33f3fb11-59b4-4a38-a549-27bb4628d1af
 
 <p>IPool provides metadata and links to videos that are embedded in different publications. To retrieve documents that including videos the search parameter "types" has to be specified as "video":     </p>
 
-<div class="highlight highlight-javascript"><pre>https<span class="pl-ko">:</span><span class="pl-c"><span class="pl-pdc">//</span>ipool.s.asideas.de:443/api/v3/search?limit=25&amp;types="video"</span></pre></div>
+<div class="highlight highlight-javascript"><pre>https<span class="pl-k">:</span><span class="pl-c">//ipool.s.asideas.de:443/api/v3/search?limit=25&amp;types="video"</span></pre></div>
 
 <p>If you want to access or download a specific video, the provided external link can be extracted from the achieved JSON result. For instance, you can ask for documents with videos about the latest Udo Lindenberg concert during the Mauerfall celebration close to the Brandenburg gate:   </p>
 
-<div class="highlight highlight-javascript"><pre>https<span class="pl-ko">:</span><span class="pl-c"><span class="pl-pdc">//</span>ipool.s.asideas.de:443/api/v3/search?persons="Lindenberg"&amp;types="video"&amp;q="Mauerfall"&amp;geos="Brandenburger Tor"</span></pre></div>
+<div class="highlight highlight-javascript"><pre>https<span class="pl-k">:</span><span class="pl-c">//ipool.s.asideas.de:443/api/v3/search?persons="Lindenberg"&amp;types="video"&amp;q="Mauerfall"&amp;geos="Brandenburger Tor"</span></pre></div>
 
 <p>Then, the resulting JSON document contains several video links:</p>
 
 <div class="highlight highlight-javascript"><pre>... 
-<span class="pl-s1"><span class="pl-pds">"</span>contentReferences<span class="pl-pds">"</span></span><span class="pl-ko">:</span> [
+<span class="pl-s1"><span class="pl-pds">"</span>contentReferences<span class="pl-pds">"</span></span><span class="pl-k">:</span> [
 {
-    <span class="pl-s1"><span class="pl-pds">"</span>externalUrl<span class="pl-pds">"</span></span><span class="pl-ko">:</span> <span class="pl-s1"><span class="pl-pds">"</span>http://brightcove01.brightcove.com/21/8385562001/201411/2439/8385562001_3883368544001_2014-11-09T205130Z1LOVEAA81LXTAA-RTRMADV-STREAM-6756-16X9-MPG-ONLINE-KONZERT-O-H264-640x360.mp4<span class="pl-pds">"</span></span>,
-    <span class="pl-s1"><span class="pl-pds">"</span>type<span class="pl-pds">"</span></span><span class="pl-ko">:</span> <span class="pl-s1"><span class="pl-pds">"</span>VIDEO<span class="pl-pds">"</span></span>,
-    <span class="pl-s1"><span class="pl-pds">"</span>title<span class="pl-pds">"</span></span><span class="pl-ko">:</span> <span class="pl-s1"><span class="pl-pds">"</span>Ganz Berlin ein bisschen verrückt<span class="pl-pds">"</span></span>
+    <span class="pl-s1"><span class="pl-pds">"</span>externalUrl<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">"</span>http://brightcove01.brightcove.com/21/8385562001/201411/2439/8385562001_3883368544001_2014-11-09T205130Z1LOVEAA81LXTAA-RTRMADV-STREAM-6756-16X9-MPG-ONLINE-KONZERT-O-H264-640x360.mp4<span class="pl-pds">"</span></span>,
+    <span class="pl-s1"><span class="pl-pds">"</span>type<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">"</span>VIDEO<span class="pl-pds">"</span></span>,
+    <span class="pl-s1"><span class="pl-pds">"</span>title<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">"</span>Ganz Berlin ein bisschen verrückt<span class="pl-pds">"</span></span>
 }, ...]
 ... </pre></div>
 
@@ -128,7 +131,7 @@ Please note that all document types have to be written in lower case.</p>
 apply the publisher parameter. For example, it is possible to retrieve all
 articles from Metal Hammer, Musik Express and Rolling Stone by </p>
 
-<div class="highlight highlight-javascript"><pre>https<span class="pl-ko">:</span><span class="pl-c"><span class="pl-pdc">//</span>ipool.s.asideas.de:443/api/v3/search?limit=25&amp;publisher="www.metal-hammer.de","www.musikexpress.de","www.rollingstone.de"</span></pre></div>
+<div class="highlight highlight-javascript"><pre>https<span class="pl-k">:</span><span class="pl-c">//ipool.s.asideas.de:443/api/v3/search?limit=25&amp;publisher="www.metal-hammer.de","www.musikexpress.de","www.rollingstone.de"</span></pre></div>
 
 <p><strong>3) How can I find related content ?</strong></p>
 
@@ -136,41 +139,41 @@ articles from Metal Hammer, Musik Express and Rolling Stone by </p>
 query parameter q. For instance, the next request returns all articles which 
 are related to the term "Mauerfall".</p>
 
-<div class="highlight highlight-javascript"><pre>https<span class="pl-ko">:</span><span class="pl-c"><span class="pl-pdc">//</span>ipool.s.asideas.de:443/api/v3/search?limit=25&amp;q="Mauerfall"</span></pre></div>
+<div class="highlight highlight-javascript"><pre>https<span class="pl-k">:</span><span class="pl-c">//ipool.s.asideas.de:443/api/v3/search?limit=25&amp;q="Mauerfall"</span></pre></div>
 
 <p><strong>4) How can I find and download pictures ?</strong></p>
 
 <p>When the parameter "types" is set to "picture", you just get articles embedding a
 picture, e.g.</p>
 
-<div class="highlight highlight-javascript"><pre>https<span class="pl-ko">:</span><span class="pl-c"><span class="pl-pdc">//</span>ipool.s.asideas.de:443/api/v3/search?limit=25&amp;types="picture"&amp;q="udo lindenberg"</span></pre></div>
+<div class="highlight highlight-javascript"><pre>https<span class="pl-k">:</span><span class="pl-c">//ipool.s.asideas.de:443/api/v3/search?limit=25&amp;types="picture"&amp;q="udo lindenberg"</span></pre></div>
 
 <p>In contrast to videos, pictures can also be directly downloaded by the object endpoint.
 Therefore, you have first to read the binaryIdentifier field: </p>
 
-<div class="highlight highlight-javascript"><pre><span class="pl-s1"><span class="pl-pds">"</span>contentReferences<span class="pl-pds">"</span></span><span class="pl-ko">:</span> [
+<div class="highlight highlight-javascript"><pre><span class="pl-s1"><span class="pl-pds">"</span>contentReferences<span class="pl-pds">"</span></span><span class="pl-k">:</span> [
 {
-  <span class="pl-s1"><span class="pl-pds">"</span>binaryIdentifier<span class="pl-pds">"</span></span><span class="pl-ko">:</span> <span class="pl-s1"><span class="pl-pds">"</span>5744a79d07458a0a3a167775f96ec11c<span class="pl-pds">"</span></span>,
+  <span class="pl-s1"><span class="pl-pds">"</span>binaryIdentifier<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">"</span>5744a79d07458a0a3a167775f96ec11c<span class="pl-pds">"</span></span>,
   ...
 }</pre></div>
 
 <p><strong>6) Retrieve music related content by category</strong></p>
 
-<div class="highlight highlight-javascript"><pre>https<span class="pl-ko">:</span><span class="pl-c"><span class="pl-pdc">//</span>ipool.s.asideas.de:443/api/v3/search?category="Musik"</span></pre></div>
+<div class="highlight highlight-javascript"><pre>https<span class="pl-k">:</span><span class="pl-c">//ipool.s.asideas.de:443/api/v3/search?category="Musik"</span></pre></div>
 
 <p><strong>7) How can I use pagination?</strong></p>
 
 <p>Pagination is a useful mechanism to get more results as specified by the limit parameter. Therefore, we simply exploit the offset parameter in conjunction with a certain limit value. Let us assume that we are interested in articles related to the singer Madonna. When our iPool system includes 1000 related articles, we can get a list of the first 100 ones via querying</p>
 
-<div class="highlight highlight-javascript"><pre>https<span class="pl-ko">:</span><span class="pl-c"><span class="pl-pdc">//</span>ipool.s.asideas.de/api/v3/search?persons="Madonna"&amp;limit=100</span></pre></div>
+<div class="highlight highlight-javascript"><pre>https<span class="pl-k">:</span><span class="pl-c">//ipool.s.asideas.de/api/v3/search?persons="Madonna"&amp;limit=100</span></pre></div>
 
 <p>For retrieving the next 100 articles (number 101 until number 200) of the list of all interesting articles we need to use an offset of 100 saying that we want to get the next 100 articles staring from position 100:</p>
 
-<div class="highlight highlight-javascript"><pre>https<span class="pl-ko">:</span><span class="pl-c"><span class="pl-pdc">//</span>ipool.s.asideas.de/api/v3/search?persons="Madonna"&amp;offset=100&amp;limit=100</span></pre></div>
+<div class="highlight highlight-javascript"><pre>https<span class="pl-k">:</span><span class="pl-c">//ipool.s.asideas.de/api/v3/search?persons="Madonna"&amp;offset=100&amp;limit=100</span></pre></div>
 
 <p>To obtain the next 100 articles (number 201 until number 300) we shift the offset to 200:</p>
 
-<div class="highlight highlight-javascript"><pre>https<span class="pl-ko">:</span><span class="pl-c"><span class="pl-pdc">//</span>ipool.s.asideas.de/api/v3/search?persons="Madonna"&amp;offset=200&amp;limit=100</span></pre></div>
+<div class="highlight highlight-javascript"><pre>https<span class="pl-k">:</span><span class="pl-c">//ipool.s.asideas.de/api/v3/search?persons="Madonna"&amp;offset=200&amp;limit=100</span></pre></div>
 
 <p>And so on.</p>
 
@@ -179,19 +182,19 @@ Therefore, you have first to read the binaryIdentifier field: </p>
 <p>The hot topic endpoint determines topics that are mentioned most over all current documents. A time dimension is not taken into account.
 Following example query gives hot topics that are related to the person Madonna, but not to the person Michael Jackson. To express such a query, we filter Madonna positively and Michael Jackson negatively in the persons parameter, respectively:</p>
 
-<div class="highlight highlight-javascript"><pre>https<span class="pl-ko">:</span><span class="pl-c"><span class="pl-pdc">//</span>ipool.s.asideas.de/api/v3/topics/hot?persons="Madonna",-"Michael Jackson"</span></pre></div>
+<div class="highlight highlight-javascript"><pre>https<span class="pl-k">:</span><span class="pl-c">//ipool.s.asideas.de/api/v3/topics/hot?persons="Madonna",-"Michael Jackson"</span></pre></div>
 
 <p>In contrast, the trending endpoint retrieves topics with very quickly growing mention rates. That means, a topic can be trending in spite of having a relatively slow total number of mentions. In this case, it must show one of the best increasing rates.
 The next example query returns the trending topics for the last 10 days (default value). Thereby, we split our overall interval in ten equal parts, i.e. one day per part. Based on these smaller intervals we internally calculate the increasing involved hot topics (default value).</p>
 
-<div class="highlight highlight-javascript"><pre>https<span class="pl-ko">:</span><span class="pl-c"><span class="pl-pdc">//</span>ipool.s.asideas.de/api/v3/topics/trending?numberOfRequests=10</span></pre></div>
+<div class="highlight highlight-javascript"><pre>https<span class="pl-k">:</span><span class="pl-c">//ipool.s.asideas.de/api/v3/topics/trending?numberOfRequests=10</span></pre></div>
 
 <p><strong>9) What is the difference between the limit and the numberOfHotTopics parameter for the trending endpoint?</strong></p>
 
 <p>The limit parameter restricts the number of returned topics. Contrarily, the numberOfHotTopics parameter bounds the internal computation basis. As result, we are able to reduce critical calculations by adjusting this parameter.
 The following query just consider the best 100 hot topics of the last 10 days to determine the trending ones:</p>
 
-<div class="highlight highlight-javascript"><pre>https<span class="pl-ko">:</span><span class="pl-c"><span class="pl-pdc">//</span>ipool.s.asideas.de/api/v3/topics/trending?numberOfHotTopics=100</span></pre></div>
+<div class="highlight highlight-javascript"><pre>https<span class="pl-k">:</span><span class="pl-c">//ipool.s.asideas.de/api/v3/topics/trending?numberOfHotTopics=100</span></pre></div>
 
 <p><strong>10) What does the parameter numberOfRequests mean?</strong></p>
 
@@ -201,17 +204,17 @@ The following query just consider the best 100 hot topics of the last 10 days to
 
 <p>In order to download a specific picture you need either the object identifier or the external URL. Both entities are parts of the resulting JSON object achieved by a query sent to the search endpoint:</p>
 
-<div class="highlight highlight-javascript"><pre><span class="pl-s1"><span class="pl-pds">"</span>contentReferences<span class="pl-pds">"</span></span><span class="pl-ko">:</span> [ {
-<span class="pl-s1"><span class="pl-pds">"</span>binaryIdentifier<span class="pl-pds">"</span></span><span class="pl-ko">:</span> <span class="pl-s1"><span class="pl-pds">"</span>31a79d4aa911d697d3bcd64fe07267d3<span class="pl-pds">"</span></span>,
-<span class="pl-s1"><span class="pl-pds">"</span>type<span class="pl-pds">"</span></span><span class="pl-ko">:</span> <span class="pl-s1"><span class="pl-pds">"</span>PICTURE<span class="pl-pds">"</span></span>,
-<span class="pl-s1"><span class="pl-pds">"</span>title<span class="pl-pds">"</span></span><span class="pl-ko">:</span> <span class="pl-s1"><span class="pl-pds">"</span>zschäpe 2<span class="pl-pds">"</span></span>,
-<span class="pl-s1"><span class="pl-pds">"</span>alternateText<span class="pl-pds">"</span></span><span class="pl-ko">:</span> <span class="pl-s1"><span class="pl-pds">"</span>NSU Prozess<span class="pl-pds">"</span></span>,
-<span class="pl-s1"><span class="pl-pds">"</span>caption<span class="pl-pds">"</span></span><span class="pl-ko">:</span><span class="pl-s1"><span class="pl-pds">"</span>Beate Zschäpe am 100. Prozesstag im Gerichtssaal im</span>
-<span class="pl-s1">Oberlandesgericht in München<span class="pl-pds">"</span></span>, <span class="pl-s1"><span class="pl-pds">"</span>copyrights<span class="pl-pds">"</span></span><span class="pl-ko">:</span> []
+<div class="highlight highlight-javascript"><pre><span class="pl-s1"><span class="pl-pds">"</span>contentReferences<span class="pl-pds">"</span></span><span class="pl-k">:</span> [ {
+<span class="pl-s1"><span class="pl-pds">"</span>binaryIdentifier<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">"</span>31a79d4aa911d697d3bcd64fe07267d3<span class="pl-pds">"</span></span>,
+<span class="pl-s1"><span class="pl-pds">"</span>type<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">"</span>PICTURE<span class="pl-pds">"</span></span>,
+<span class="pl-s1"><span class="pl-pds">"</span>title<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">"</span>zschäpe 2<span class="pl-pds">"</span></span>,
+<span class="pl-s1"><span class="pl-pds">"</span>alternateText<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">"</span>NSU Prozess<span class="pl-pds">"</span></span>,
+<span class="pl-s1"><span class="pl-pds">"</span>caption<span class="pl-pds">"</span></span><span class="pl-k">:</span><span class="pl-s1"><span class="pl-pds">"</span>Beate Zschäpe am 100. Prozesstag im Gerichtssaal im</span>
+<span class="pl-s1">Oberlandesgericht in München<span class="pl-pds">"</span></span>, <span class="pl-s1"><span class="pl-pds">"</span>copyrights<span class="pl-pds">"</span></span><span class="pl-k">:</span> []
 }, 
 ... 
 {
-<span class="pl-s1"><span class="pl-pds">"</span>externalUrl<span class="pl-pds">"</span></span><span class="pl-ko">:</span> <span class="pl-s1"><span class="pl-pds">"</span>http://brightcove01.brightcove.com/21/8385562001/201404/3458/8385562001_3417079759001_20140401-120624-Interview-Hannelore-Crolly-Welt-mL-2000.mp4,</span>
+<span class="pl-s1"><span class="pl-pds">"</span>externalUrl<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">"</span>http://brightcove01.brightcove.com/21/8385562001/201404/3458/8385562001_3417079759001_20140401-120624-Interview-Hannelore-Crolly-Welt-mL-2000.mp4,</span>
 <span class="pl-s1"><span class="pl-pds">"</span></span>type<span class="pl-s1"><span class="pl-pds">"</span>: <span class="pl-pds">"</span></span>VIDEO<span class="pl-s1"><span class="pl-pds">"</span>,</span>
 <span class="pl-s1"><span class="pl-pds">"</span></span>title<span class="pl-s1"><span class="pl-pds">"</span>: <span class="pl-pds">"</span></span>Zschäpe zeigt absolut keine Reue<span class="pl-s1"><span class="pl-pds">"</span> </span>
 <span class="pl-s1">}</span>
@@ -220,7 +223,7 @@ The following query just consider the best 100 hot topics of the last 10 days to
 <p>Referenced media objects can either be downloaded directly by our API or from their original sources, see data field externalUrl. The availability of external media objects cannot be guaranteed.
 For downloading the picture with the binary identifier 31a79d4aa911d697d3bcd64fe07267d3 we make use of the object endpoint via</p>
 
-<div class="highlight highlight-javascript"><pre>https<span class="pl-ko">:</span><span class="pl-c"><span class="pl-pdc">//</span>ipool.s.asideas.de/api/v3/object/31a79d4aa911d697d3bcd64fe07267d3?encodeBase64=true</span></pre></div>
+<div class="highlight highlight-javascript"><pre>https<span class="pl-k">:</span><span class="pl-c">//ipool.s.asideas.de/api/v3/object/31a79d4aa911d697d3bcd64fe07267d3?encodeBase64=true</span></pre></div>
 
 <p>The presences of binary identifiers and external URLs are depending on the given source and publisher of the considered article. For instance, all pictures of the source escenic can be achieved via our object endpoint. Contrarily, videos have to be downloaded directly by their respective URLs.</p>
 
@@ -228,7 +231,7 @@ For downloading the picture with the binary identifier 31a79d4aa911d697d3bcd64fe
 
 <p>We can get a list of all available keywords by taking advantage of the hot topic endpoint specifying the entityType as keywords:</p>
 
-<div class="highlight highlight-javascript"><pre>https<span class="pl-ko">:</span><span class="pl-c"><span class="pl-pdc">//</span>ipool.s.asideas.de/api/v3/topics/hot?entityTypes="keywords"</span></pre></div>
+<div class="highlight highlight-javascript"><pre>https<span class="pl-k">:</span><span class="pl-c">//ipool.s.asideas.de/api/v3/topics/hot?entityTypes="keywords"</span></pre></div>
       </section>
       <footer>
         <p><small>Hosted on <a href="http://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
