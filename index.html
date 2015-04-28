@@ -90,7 +90,17 @@ Secret: 33f3fb11-59b4-4a38-a549-27bb4628d1af
 <h2>
 <a id="faq" class="anchor" href="#faq" aria-hidden="true"><span class="octicon octicon-link"></span></a>FAQ</h2>
 
-<p><strong>1) How can I access a video via IPool  ?</strong></p>
+<p><strong>1) How can I extract semantic entities from a given text via IPool ?</strong></p>
+
+<p>One of the central IPool components is a semantic enrichment engine. It is capable of extracting named entities, e.g. geo locations, persons, companies, from an arbitrary text with title and subtitle.</p>
+
+<p>In order to enrich a given text you can make use of the extract endpoint of the IPool API:</p>
+
+<div class="highlight highlight-javascript"><pre>https<span class="pl-k">:</span><span class="pl-c">//ipool.s.asideas.de:443/api/v3/extract </span></pre></div>
+
+<p>This REST endpoint is implemented by means of the http method POST. In detail, you can set three optional POST parameters namely text, title and subtitle. Please note that at least one of them has to be set for delivering extracted entities.   </p>
+
+<p><strong>2) How can I access a video via IPool  ?</strong></p>
 
 <p>IPool provides metadata and links to videos that are embedded in different publications. To retrieve documents that including videos the search parameter "types" has to be specified as "video":     </p>
 
@@ -103,18 +113,18 @@ Secret: 33f3fb11-59b4-4a38-a549-27bb4628d1af
 <p>Then, the resulting JSON document contains several video links:</p>
 
 <div class="highlight highlight-javascript"><pre>... 
-<span class="pl-s1"><span class="pl-pds">"</span>contentReferences<span class="pl-pds">"</span></span><span class="pl-k">:</span> [
+<span class="pl-s"><span class="pl-pds">"</span>contentReferences<span class="pl-pds">"</span></span><span class="pl-k">:</span> [
 {
-    <span class="pl-s1"><span class="pl-pds">"</span>externalUrl<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">"</span>http://brightcove01.brightcove.com/21/8385562001/201411/2439/8385562001_3883368544001_2014-11-09T205130Z1LOVEAA81LXTAA-RTRMADV-STREAM-6756-16X9-MPG-ONLINE-KONZERT-O-H264-640x360.mp4<span class="pl-pds">"</span></span>,
-    <span class="pl-s1"><span class="pl-pds">"</span>type<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">"</span>VIDEO<span class="pl-pds">"</span></span>,
-    <span class="pl-s1"><span class="pl-pds">"</span>title<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">"</span>Ganz Berlin ein bisschen verrückt<span class="pl-pds">"</span></span>
+    <span class="pl-s"><span class="pl-pds">"</span>externalUrl<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>http://brightcove01.brightcove.com/21/8385562001/201411/2439/8385562001_3883368544001_2014-11-09T205130Z1LOVEAA81LXTAA-RTRMADV-STREAM-6756-16X9-MPG-ONLINE-KONZERT-O-H264-640x360.mp4<span class="pl-pds">"</span></span>,
+    <span class="pl-s"><span class="pl-pds">"</span>type<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>VIDEO<span class="pl-pds">"</span></span>,
+    <span class="pl-s"><span class="pl-pds">"</span>title<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>Ganz Berlin ein bisschen verrückt<span class="pl-pds">"</span></span>
 }, ...]
 ... </pre></div>
 
 <p>Other document types are given by "article", "picture" and "picture_gallery".
 Please note that all document types have to be written in lower case.</p>
 
-<p><strong>2) How can I filter content from specific magazines ?</strong></p>
+<p><strong>3) How can I filter content from specific magazines ?</strong></p>
 
 <p>In order to select certain magazines, newspapers and online services you need to 
 apply the publisher parameter. For example, it is possible to retrieve all
@@ -122,7 +132,7 @@ articles from Metal Hammer, Musik Express and Rolling Stone by </p>
 
 <div class="highlight highlight-javascript"><pre>https<span class="pl-k">:</span><span class="pl-c">//ipool.s.asideas.de:443/api/v3/search?limit=25&amp;publisher="www.metal-hammer.de","www.musikexpress.de","www.rollingstone.de"</span></pre></div>
 
-<p><strong>3) How can I find related content ?</strong></p>
+<p><strong>4) How can I find related content ?</strong></p>
 
 <p>In order to carry out a full text search in the article contents, we use the 
 query parameter q. For instance, the next request returns all articles which 
@@ -130,7 +140,7 @@ are related to the term "Mauerfall".</p>
 
 <div class="highlight highlight-javascript"><pre>https<span class="pl-k">:</span><span class="pl-c">//ipool.s.asideas.de:443/api/v3/search?limit=25&amp;q="Mauerfall"</span></pre></div>
 
-<p><strong>4) How can I find and download pictures ?</strong></p>
+<p><strong>5) How can I find and download pictures ?</strong></p>
 
 <p>When the parameter "types" is set to "picture", you just get articles embedding a
 picture, e.g.</p>
@@ -140,9 +150,9 @@ picture, e.g.</p>
 <p>In contrast to videos, pictures can also be directly downloaded by the object endpoint.
 Therefore, you have first to read the binaryIdentifier field: </p>
 
-<div class="highlight highlight-javascript"><pre><span class="pl-s1"><span class="pl-pds">"</span>contentReferences<span class="pl-pds">"</span></span><span class="pl-k">:</span> [
+<div class="highlight highlight-javascript"><pre><span class="pl-s"><span class="pl-pds">"</span>contentReferences<span class="pl-pds">"</span></span><span class="pl-k">:</span> [
 {
-  <span class="pl-s1"><span class="pl-pds">"</span>binaryIdentifier<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">"</span>5744a79d07458a0a3a167775f96ec11c<span class="pl-pds">"</span></span>,
+  <span class="pl-s"><span class="pl-pds">"</span>binaryIdentifier<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>5744a79d07458a0a3a167775f96ec11c<span class="pl-pds">"</span></span>,
   ...
 }</pre></div>
 
@@ -193,21 +203,21 @@ The following query just consider the best 100 hot topics of the last 10 days to
 
 <p>In order to download a specific picture you need either the object identifier or the external URL. Both entities are parts of the resulting JSON object achieved by a query sent to the search endpoint:</p>
 
-<div class="highlight highlight-javascript"><pre><span class="pl-s1"><span class="pl-pds">"</span>contentReferences<span class="pl-pds">"</span></span><span class="pl-k">:</span> [ {
-<span class="pl-s1"><span class="pl-pds">"</span>binaryIdentifier<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">"</span>31a79d4aa911d697d3bcd64fe07267d3<span class="pl-pds">"</span></span>,
-<span class="pl-s1"><span class="pl-pds">"</span>type<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">"</span>PICTURE<span class="pl-pds">"</span></span>,
-<span class="pl-s1"><span class="pl-pds">"</span>title<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">"</span>zschäpe 2<span class="pl-pds">"</span></span>,
-<span class="pl-s1"><span class="pl-pds">"</span>alternateText<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">"</span>NSU Prozess<span class="pl-pds">"</span></span>,
-<span class="pl-s1"><span class="pl-pds">"</span>caption<span class="pl-pds">"</span></span><span class="pl-k">:</span><span class="pl-s1"><span class="pl-pds">"</span>Beate Zschäpe am 100. Prozesstag im Gerichtssaal im</span>
-<span class="pl-s1">Oberlandesgericht in München<span class="pl-pds">"</span></span>, <span class="pl-s1"><span class="pl-pds">"</span>copyrights<span class="pl-pds">"</span></span><span class="pl-k">:</span> []
+<div class="highlight highlight-javascript"><pre><span class="pl-s"><span class="pl-pds">"</span>contentReferences<span class="pl-pds">"</span></span><span class="pl-k">:</span> [ {
+<span class="pl-s"><span class="pl-pds">"</span>binaryIdentifier<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>31a79d4aa911d697d3bcd64fe07267d3<span class="pl-pds">"</span></span>,
+<span class="pl-s"><span class="pl-pds">"</span>type<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>PICTURE<span class="pl-pds">"</span></span>,
+<span class="pl-s"><span class="pl-pds">"</span>title<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>zschäpe 2<span class="pl-pds">"</span></span>,
+<span class="pl-s"><span class="pl-pds">"</span>alternateText<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>NSU Prozess<span class="pl-pds">"</span></span>,
+<span class="pl-s"><span class="pl-pds">"</span>caption<span class="pl-pds">"</span></span><span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">"</span>Beate Zschäpe am 100. Prozesstag im Gerichtssaal im</span>
+<span class="pl-s">Oberlandesgericht in München<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>copyrights<span class="pl-pds">"</span></span><span class="pl-k">:</span> []
 }, 
 ... 
 {
-<span class="pl-s1"><span class="pl-pds">"</span>externalUrl<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">"</span>http://brightcove01.brightcove.com/21/8385562001/201404/3458/8385562001_3417079759001_20140401-120624-Interview-Hannelore-Crolly-Welt-mL-2000.mp4,</span>
-<span class="pl-s1"><span class="pl-pds">"</span></span>type<span class="pl-s1"><span class="pl-pds">"</span>: <span class="pl-pds">"</span></span>VIDEO<span class="pl-s1"><span class="pl-pds">"</span>,</span>
-<span class="pl-s1"><span class="pl-pds">"</span></span>title<span class="pl-s1"><span class="pl-pds">"</span>: <span class="pl-pds">"</span></span>Zschäpe zeigt absolut keine Reue<span class="pl-s1"><span class="pl-pds">"</span> </span>
-<span class="pl-s1">}</span>
-<span class="pl-s1">]</span></pre></div>
+<span class="pl-s"><span class="pl-pds">"</span>externalUrl<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>http://brightcove01.brightcove.com/21/8385562001/201404/3458/8385562001_3417079759001_20140401-120624-Interview-Hannelore-Crolly-Welt-mL-2000.mp4,</span>
+<span class="pl-s"><span class="pl-pds">"</span></span>type<span class="pl-s"><span class="pl-pds">"</span>: <span class="pl-pds">"</span></span>VIDEO<span class="pl-s"><span class="pl-pds">"</span>,</span>
+<span class="pl-s"><span class="pl-pds">"</span></span>title<span class="pl-s"><span class="pl-pds">"</span>: <span class="pl-pds">"</span></span>Zschäpe zeigt absolut keine Reue<span class="pl-s"><span class="pl-pds">"</span> </span>
+<span class="pl-s">}</span>
+<span class="pl-s">]</span></pre></div>
 
 <p>Referenced media objects can either be downloaded directly by our API or from their original sources, see data field externalUrl. The availability of external media objects cannot be guaranteed.
 For downloading the picture with the binary identifier 31a79d4aa911d697d3bcd64fe07267d3 we make use of the object endpoint via</p>
